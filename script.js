@@ -14,7 +14,7 @@
         chatHeader.appendChild(closeButton);
 
         const iframe = document.createElement("iframe");
-        iframe.src = "https://chat.openai.com";
+        iframe.src = "https://minitoolai.com/chatGPT/";
         chatContainer.appendChild(iframe);
 
         Object.assign(chatContainer.style, {
