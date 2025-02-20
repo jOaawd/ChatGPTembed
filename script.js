@@ -14,7 +14,7 @@
         chatHeader.appendChild(closeButton);
 
         const iframe = document.createElement("iframe");
-        iframe.src = "https://iframe.interaxai.com/67b66eb8d2fcb363116cb170;
+        iframe.src = "https://iframe.interaxai.com/67b66eb8d2fcb363116cb170";
         chatContainer.appendChild(iframe);
 
         Object.assign(chatContainer.style, {
