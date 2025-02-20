@@ -12,3 +12,4 @@ Or Shorter but havent test it yet
 
 
  # I DIDNT DEVELOP THE CODE I ADDED TO IT AND YEAH, I JUST MADE THE HTML 
+FULL CREDIT GOES TO <a href="https://github.com/Blobby-Boi">Blobby-Boi</a>
