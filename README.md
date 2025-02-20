@@ -11,16 +11,4 @@ Or Shorter but havent test it yet
 ```
 
 
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div><div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div><div></div>
  # I DIDNT DEVELOP THE CODE I ADDED TO IT AND YEAH, I JUST MADE THE HTML 
