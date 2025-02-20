@@ -93,12 +93,13 @@ function createChatGPTpopup() {
         cursor: "pointer",
         fontSize: "20px",
         margin: "0",
-        height: "25px",
-        width: "25px",
+        height: "30px",
+        width: "30px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "50%"
+        borderRadius: "50%",
+        padding: "0" // Remove any padding
     });
 
     closeButton.addEventListener("mouseenter", () => {
