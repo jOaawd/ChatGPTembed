@@ -40,7 +40,7 @@ function createChatGPTpopup() {
     chatContainer.appendChild(iframe);
 
     const showButton = document.createElement("button");
-    showButton.innerText = "🚀 Show Popup";
+    showButton.innerText = "Pause Test";
     document.body.appendChild(showButton);
     showButton.style.display = "none"; 
 
