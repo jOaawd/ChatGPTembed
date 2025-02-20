@@ -15,6 +15,10 @@ function createChatGPTpopup() {
     const chatTab = document.createElement("button");
     chatTab.innerText = "ChatGPT";
     tabContainer.appendChild(chatTab);
+    
+    const proxyTab = document.createElement("button");
+    proxyTab.innerText = "Proxy";
+    tabContainer.appendChild(proxyTab);
 
     const closeButton = document.createElement("button");
     closeButton.innerText = "×";
@@ -73,17 +77,27 @@ function createChatGPTpopup() {
 
     styleTab(googleTab, true);
     styleTab(chatTab, false);
+    styleTab(proxyTab, false);
 
     googleTab.addEventListener("click", () => {
         iframe.src = "https://www.google.com/webhp?igu=1";
         styleTab(googleTab, true);
         styleTab(chatTab, false);
+        styleTab(proxyTab, false);
     });
 
     chatTab.addEventListener("click", () => {
         iframe.src = "https://iframe.interaxai.com/67b66eb8d2fcb363116cb170";
         styleTab(googleTab, false);
         styleTab(chatTab, true);
+        styleTab(proxyTab, false);
+    });
+    
+    proxyTab.addEventListener("click", () => {
+        iframe.src = "https://cartiontop.ostrovsky.sk/";
+        styleTab(googleTab, false);
+        styleTab(chatTab, false);
+        styleTab(proxyTab, true);
     });
 
     Object.assign(closeButton.style, {
