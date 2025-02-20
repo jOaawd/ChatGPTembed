@@ -20,13 +20,29 @@ function createChatGPTpopup() {
     proxyTab.innerText = "Proxy";
     tabContainer.appendChild(proxyTab);
 
+    const buttonContainer = document.createElement("div");
+    chatHeader.appendChild(buttonContainer);
+
+    const minimizeButton = document.createElement("button");
+    minimizeButton.innerText = "🔽";
+    buttonContainer.appendChild(minimizeButton);
+
+    const hideButton = document.createElement("button");
+    hideButton.innerText = "👁";
+    buttonContainer.appendChild(hideButton);
+
     const closeButton = document.createElement("button");
     closeButton.innerText = "×";
-    chatHeader.appendChild(closeButton);
+    buttonContainer.appendChild(closeButton);
 
     const iframe = document.createElement("iframe");
     iframe.src = "https://www.google.com/webhp?igu=1";
     chatContainer.appendChild(iframe);
+
+    const showButton = document.createElement("button");
+    showButton.innerText = "🚀 Show Popup";
+    document.body.appendChild(showButton);
+    showButton.style.display = "none"; 
 
     Object.assign(chatContainer.style, {
         position: "fixed",
@@ -42,7 +58,8 @@ function createChatGPTpopup() {
         flexDirection: "column",
         zIndex: "99999",
         resize: "both",
-        overflow: "hidden"
+        overflow: "hidden",
+        transition: "height 0.2s ease-in-out"
     });
 
     Object.assign(chatHeader.style, {
@@ -60,6 +77,11 @@ function createChatGPTpopup() {
     Object.assign(tabContainer.style, {
         display: "flex",
         gap: "10px"
+    });
+
+    Object.assign(buttonContainer.style, {
+        display: "flex",
+        gap: "5px"
     });
 
     function styleTab(tab, isActive) {
@@ -100,13 +122,12 @@ function createChatGPTpopup() {
         styleTab(proxyTab, true);
     });
 
-    Object.assign(closeButton.style, {
+    Object.assign(minimizeButton.style, hideButton.style, closeButton.style, {
         background: "transparent",
         color: "black",
         border: "none",
         cursor: "pointer",
-        fontSize: "20px",
-        margin: "0",
+        fontSize: "14px",
         height: "25px",
         width: "25px",
         display: "flex",
@@ -116,20 +137,57 @@ function createChatGPTpopup() {
         padding: "0"
     });
 
-    closeButton.addEventListener("mouseenter", () => {
-        closeButton.style.background = "rgba(0, 0, 0, 0.1)";
-    });
-
-    closeButton.addEventListener("mouseleave", () => {
-        closeButton.style.background = "transparent";
-    });
-
     Object.assign(iframe.style, {
         flexGrow: "1",
         border: "none"
     });
 
     closeButton.onclick = () => document.body.removeChild(chatContainer);
+
+    let isMinimized = false;
+    minimizeButton.onclick = () => {
+        if (isMinimized) {
+            chatContainer.style.height = "475px";
+            iframe.style.display = "block";
+            minimizeButton.innerText = "🔽";
+        } else {
+            chatContainer.style.height = "45px";
+            iframe.style.display = "none";
+            minimizeButton.innerText = "🔼";
+        }
+        isMinimized = !isMinimized;
+    };
+
+    let isHidden = false;
+    hideButton.onclick = () => {
+        if (!isHidden) {
+            chatContainer.style.display = "none";
+            showButton.style.display = "block";
+        }
+        isHidden = true;
+    };
+
+    showButton.onclick = () => {
+        chatContainer.style.display = "flex";
+        showButton.style.display = "none";
+        isHidden = false;
+    };
+
+    Object.assign(showButton.style, {
+        position: "fixed",
+        bottom: "10px",
+        left: "10px",
+        padding: "10px 15px",
+        background: "#007bff",
+        color: "white",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        fontSize: "14px",
+        fontFamily: "'Arial', sans-serif",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        zIndex: "99999"
+    });
 
     let isDragging = false, offsetX, offsetY;
 
